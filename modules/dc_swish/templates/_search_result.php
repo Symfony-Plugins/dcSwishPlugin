@@ -1,4 +1,4 @@
-<div style="border-bottom: 1px solid black">
+<div>
   <?php foreach ($display as $field): ?>
     <strong><?php echo __("%s%", array("%s%" => sfInflector::humanize($field))) ?></strong>
     <?php if ($field == "path"): ?>

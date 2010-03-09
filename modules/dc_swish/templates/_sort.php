@@ -1,3 +1,4 @@
+<div id="sort">
 <?php echo __("Sort by")?>
 
 <?php if (in_array("rank", $display)): ?>
@@ -18,4 +19,4 @@
 |
 <?php echo link_to(__('Last modified', array(), 'messages'), '@dc_swish', array('query_string' => 'sort='.SwishManager::MODIFIED.'&sort_type='.($sort[1] == 'asc' ? 'desc' : 'asc'), 'title' => __('Sort by this field', array(), 'messages'))) ?>
 <?php endif ?>
-
+</div>

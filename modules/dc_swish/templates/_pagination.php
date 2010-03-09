@@ -1,3 +1,4 @@
+<div id="pager">
   <a href="<?php echo url_for('@dc_swish') ?>?page=1">
     <?php echo image_tag(sfConfig::get('sf_admin_module_web_dir').'/images/first.png', array('alt' => __('First page', array(), 'sf_admin'), 'title' => __('First page', array(), 'sf_admin'))) ?>
   </a>
@@ -21,3 +22,4 @@
   <a href="<?php echo url_for('@dc_swish') ?>?page=<?php echo $pager->getLastPage() ?>">
     <?php echo image_tag(sfConfig::get('sf_admin_module_web_dir').'/images/last.png', array('alt' => __('Last page', array(), 'sf_admin'), 'title' => __('Last page', array(), 'sf_admin'))) ?>
   </a>
+</div>

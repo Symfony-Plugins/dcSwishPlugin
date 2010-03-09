@@ -1,0 +1,20 @@
+dcSwishPlugin
+=============
+
+This plugin allows you to index files on the filesystem of the server and
+search by keywords. This can be done using a module provided by the plugin.
+
+Installation
+------------
+
+  * Install the plugin
+
+      $ ./symfony plugin:install dcSwishPlugin
+
+  * Create the swish.config file in $SF_ROOT_DIR/config/swish.config (a sample is provided in $SF_PLUGINS_DIR/config/swish.config.sample)
+
+  * Build the index
+
+      $ ./symfony swish:build
+
+  * 

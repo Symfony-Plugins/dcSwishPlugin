@@ -1,4 +1,7 @@
 <?php use_helper('I18N', 'Date') ?>
+
+<?php include_partial("dc_swish/flashes") ?>
+
 <form action="<?php echo url_for('@dc_swish_search') ?>" method="POST">
   <table>
     <?php echo $swish_form ?>

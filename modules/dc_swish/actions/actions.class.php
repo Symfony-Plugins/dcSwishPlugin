@@ -70,7 +70,15 @@ class dc_swishActions extends sfActions
     $pager->setQuery($this->getQuery());
     $pager->setPage($this->getPage());
     $pager->setSort($this->getSort());
-    $pager->init();
+    try
+    {
+      $pager->init();
+    }
+    catch (Exception $e)
+    {
+      $this->getUser()->setFlash("error", "All search words too common to be useful");
+      $this->setQuery(array());
+    }
     return $pager;
   }
 
@@ -115,5 +123,4 @@ class dc_swishActions extends sfActions
   {
     return $this->getUser()->getAttribute('swish.query', array(), 'swish_plugin');
   }
-
 }

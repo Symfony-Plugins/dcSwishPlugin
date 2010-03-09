@@ -11,10 +11,29 @@ Installation
 
       $ ./symfony plugin:install dcSwishPlugin
 
+Usage
+-----
+
   * Create the swish.config file in $SF_ROOT_DIR/config/swish.config (a sample is provided in $SF_PLUGINS_DIR/config/swish.config.sample)
 
   * Build the index
 
       $ ./symfony swish:build
 
-  * 
+  * Configure the plugin in `app.yml`
+      [yml]
+      all:
+        dc_swish:
+          index: <?php echo basename(__FILE__) ?>/../../../data/swish/index.swish-e
+          display: [rank, path, size, lastmod, title, description]  # the fields to be displayed
+
+  * Enable the dc_swish_module in `settings.yml`
+      [yml]
+      all:
+        # ...
+        enabled_modules: [default, dc_swish]
+
+  * Rely on dc_swish!
+      [php]
+      // ...
+      $this->redirect("@dc_swish");

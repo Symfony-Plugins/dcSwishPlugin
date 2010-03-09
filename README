@@ -4,6 +4,23 @@ dcSwishPlugin
 This plugin allows you to index files on the filesystem of the server and
 search by keywords. This can be done using a module provided by the plugin.
 
+Requirements
+------------
+
+The following packages are required to use this plugin:
+  * swish-e
+  * swish-e-dev
+  * php5-dev
+  * catdoc
+
+On debian/ubuntu, these packages can be installed with apt-get:
+
+    $ sudo apt-get install swish-e swish-e-dev php5-dev catdoc
+
+In addition, you must install the swish-beta pecl module:
+
+    $ sudo pecl install swish-beta
+
 Installation
 ------------
 

@@ -1,0 +1,11 @@
+dc_swish:
+  url: /dc_swish
+  param: { module: dc_swish, action: index }
+
+dc_swish_download:
+  url: /dc_swish-download
+  param: { module: dc_swish, action: download }
+
+dc_swish_search:
+  url: /dc_swish-search
+  param: { module: dc_swish, action: search }

@@ -19,6 +19,9 @@ class dc_swishActions extends sfActions
   {
     $this->swish_form = new SwishSearchForm();
 
+    $this->swish_form->setDefault("query", $this->getUser()->getAttribute("request_query", ""));
+    $this->getUser()->getAttributeHolder()->remove("request_query");
+
     // sorting
     if ($request->getParameter('sort'))
     {
@@ -38,6 +41,8 @@ class dc_swishActions extends sfActions
 
   public function executeSearch(sfWebRequest $request)
   {
+    $this->getUser()->setAttribute("request_query", $request->getParameter("swish[query]"));
+
     $this->setPage(1);
     $this->swish_form = new SwishSearchForm();
     $this->swish_form->bind($request->getParameter('swish'));

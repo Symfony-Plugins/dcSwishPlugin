@@ -50,14 +50,19 @@ class SwishManager
 
   public static function doSelect($query, $index, $offset, $limit, $sort=null)
   {
+    if (empty($index) )
+    {
+      $index = sfConfig::get('app_dc_swish_index', "swish_index_default");
+    }
     $sm=SwishManager::getInstance($index);
     $result=$sm->search($query,$sort);
     $result->seekResult($offset);
+    $removed_stopwords = $result->getRemovedStopwords($index);
     $i=0;
     $ret=array();
     while( ( $current=$result->nextResult() ) && ($i++ < $limit) )
     {
-      $ret[]=new SwishResultWrapper($current);
+      $ret[]=new SwishResultWrapper($current, $removed_stopwords);
     }
     return $ret;
   }
@@ -73,7 +78,9 @@ class SwishManager
 
   protected function getQueryString($query)
   {
-    return (is_array($query)&&array_key_exists('query',$query))?$query['query']:(!is_array($query)?$query:null);
+    $str = (is_array($query)&&array_key_exists('query',$query))?$query['query']:(!is_array($query)?$query:null);
+
+    return $str;
   }
 
   protected function getSortString($sort)

@@ -7,9 +7,10 @@ class SwishResultWrapper
     $size,
     $lastmodified,
     $title,
-    $description;
+    $description,
+    $removed_stopwords;
 
-  public function __construct(SwishResult $s)
+  public function __construct(SwishResult $s, $removed_stopwords)
   {
     $this->rank= @$s->swishrank;
     $this->path= @$s->swishdocpath;
@@ -17,6 +18,7 @@ class SwishResultWrapper
     $this->lastmodified = @$s->swishlastmodified;
     $this->title = @$s->swishtitle;
     $this->description = @$s->swishdescription;
+    $this->removed_stopwords = $removed_stopwords;
   }
 
   public function getRank()
@@ -59,4 +61,8 @@ class SwishResultWrapper
     return base64_decode($p);
   }
 
+  public function getRemovedStopwords()
+  {
+    return $this->removed_stopwords;
+  }
 }

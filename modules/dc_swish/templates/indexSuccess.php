@@ -1,5 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
 
+<?php use_stylesheet("/dcSwishPlugin/css/main.css") ?>
 <?php include_partial("dc_swish/flashes") ?>
 
 <form action="<?php echo url_for('@dc_swish_search') ?>" method="POST">
